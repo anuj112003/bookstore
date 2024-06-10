@@ -41,12 +41,19 @@ import './Booksearch.css'
 function BookSearch({ addToBookshelf }) {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    if (query) {
-      fetch(`https://openlibrary.org/search.json?q=${query}&limit=10&page=1`)
+    
+  fetch(`https://openlibrary.org/search.json?q=${query}&limit=10&page=1`)
         .then(response => response.json())
         .then(data => setBooks(data.docs));
+  useEffect(() => {
+    if (query) {
+      const getuser = async()=>{
+      const user =  await fetch(`https://openlibrary.org/search.json?q=${query}&limit=10&page=1`)
+        .then(response => response.json())
+        .then(data => setBooks(data.docs));
+      }
+      getuser();
+       
     }
   }, [query]);
 
@@ -58,7 +65,7 @@ function BookSearch({ addToBookshelf }) {
         value={query}
         onChange={e => setQuery(e.target.value)}
         placeholder="Search for a book..."
-      />
+      className='input'/>
       <div className='cards'>
         {books.map(book => (
           <div className='cards1' key={book.key} style={{ border: '1px solid black', margin: '10px', padding: '10px' }}>

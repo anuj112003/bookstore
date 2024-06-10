@@ -69,7 +69,7 @@ function BookSearch({ addToBookshelf }) {
       <div className='cards'>
         {books.map(book => (
           <div className='cards1' key={book.key} style={{ border: '1px solid black', margin: '10px', padding: '10px' }}>
-            <h2>{book.title}</h2>
+            <h2>{book.title.length>50 ?`${book.title.substring(0,40)}...` :book.title }</h2>
             <p >Edition Count:{book.edition_count ? book.edition_count : 'Unknown'}</p>
             <button className='button' onClick={() => addToBookshelf(book)}>Add to Bookshelf</button>
           </div>

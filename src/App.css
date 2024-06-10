@@ -59,6 +59,8 @@ nav a:hover {
   width: 120px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 30px;
 }
 .mybook1{
   background-color: green;
@@ -67,5 +69,6 @@ nav a:hover {
   width: 120px;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 30px;
 }

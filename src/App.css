@@ -67,4 +67,5 @@ nav a:hover {
   width: 120px;
   display: flex;
   justify-content: center;
+  height: 30px;
 }

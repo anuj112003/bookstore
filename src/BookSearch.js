@@ -42,7 +42,7 @@ function BookSearch({ addToBookshelf }) {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
     
-  fetch(`https://openlibrary.org/search.json?q=${query}&limit=10&page=1`)
+  fetch(`https://openlibrary.org/search.json?q= the&limit=10&page=1`)
         .then(response => response.json())
         .then(data => setBooks(data.docs));
   useEffect(() => {

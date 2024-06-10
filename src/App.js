@@ -1,25 +1,79 @@
-import logo from './logo.svg';
+
 import './App.css';
 
+// import React, { useState, useEffect } from 'react';
+// import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+// import BookSearch from './BookSearch';
+// import Bookshelf from './BookShelf';
+
+// function App() {
+//   const [bookshelf, setBookshelf] = useState([]);
+
+//   useEffect(() => {
+//     const storedBookshelf = JSON.parse(localStorage.getItem('bookshelf'));
+//     if (storedBookshelf) {
+//       setBookshelf(storedBookshelf);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     localStorage.setItem('bookshelf', JSON.stringify(bookshelf));
+//   }, [bookshelf]);
+
+//   const addToBookshelf = (book) => {
+//     setBookshelf([...bookshelf, book]);
+//   };
+
+//   return (
+//     <Router>
+//       <nav>
+//         <Link to="/">Search</Link>
+//         <Link to="/bookshelf">My Bookshelf</Link>
+//       </nav>
+//       <Routes>
+//         <Route path="/" element={<BookSearch addToBookshelf={addToBookshelf} />} />
+//         <Route path="/bookshelf" element={<Bookshelf bookshelf={bookshelf} />} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import BookSearch from './BookSearch';
+import Bookshelf from './BookShelf';
+
 function App() {
+  const [bookshelf, setBookshelf] = useState([]);
+
+  useEffect(() => {
+    const storedBookshelf = JSON.parse(localStorage.getItem('bookshelf')) || [];
+    setBookshelf(storedBookshelf);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('bookshelf', JSON.stringify(bookshelf));
+  }, [bookshelf]);
+
+  const addToBookshelf = (book) => {
+    setBookshelf([...bookshelf, book]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav>
+        <Link to="/"  className='mybook1'>Search</Link>
+        <Link to="/bookshelf" className='mybook'>My Bookshelf</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<BookSearch addToBookshelf={addToBookshelf} />} />
+        <Route path="/bookshelf" element={<Bookshelf bookshelf={bookshelf} />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

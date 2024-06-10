@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,36 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+.mybook{
+  background-color: green;
+  color: #f8f9fa;
+  border-radius: 5px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+}
+.mybook1{
+  background-color: green;
+  color: #f8f9fa;
+  border-radius: 5px;
+  width: 120px;
+  display: flex;
+  justify-content: center;
 }
